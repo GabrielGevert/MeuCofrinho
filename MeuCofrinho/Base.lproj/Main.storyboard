@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MeuCofrinho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy-bank-svgrepo-com" translatesAutoresizingMaskIntoConstraints="NO" id="kac-Bg-D73">
+                                <rect key="frame" x="38" y="178" width="338" height="197"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBX-M1-RGi">
+                                <rect key="frame" x="65" y="480" width="293" height="47"/>
+                                <rect key="contentStretch" x="0.0" y="0.050000000000000003" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="6Wq-0R-dDF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9g-vy-zRy">
+                                <rect key="frame" x="65" y="535" width="293" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="tnT-Z6-nTk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem conta? Cadastre-se!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZz-vw-xDh">
+                                <rect key="frame" x="180" y="590" width="178" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BV0-Xy-Xi8">
+                                <rect key="frame" x="93" y="672" width="228" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="6RH-4J-EHL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Entrar">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.46091415131927749" green="0.89372598522841329" blue="0.47360621468985126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kac-Bg-D73" secondAttribute="bottom" constant="487" id="4tM-pe-roP"/>
+                            <constraint firstItem="V9g-vy-zRy" firstAttribute="top" secondItem="NBX-M1-RGi" secondAttribute="bottom" constant="8" symbolic="YES" id="GBj-ce-fJv"/>
+                            <constraint firstItem="EZz-vw-xDh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="180" id="HeY-sc-161"/>
+                            <constraint firstItem="BV0-Xy-Xi8" firstAttribute="centerX" secondItem="kac-Bg-D73" secondAttribute="centerX" id="KJo-jk-AII"/>
+                            <constraint firstItem="kac-Bg-D73" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KlV-8M-yfC"/>
+                            <constraint firstItem="kac-Bg-D73" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="134" id="PNJ-j1-ehO"/>
+                            <constraint firstItem="kac-Bg-D73" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="U2B-KI-7Bx"/>
+                            <constraint firstItem="V9g-vy-zRy" firstAttribute="trailing" secondItem="EZz-vw-xDh" secondAttribute="trailing" id="cUg-Nt-Fwv"/>
+                            <constraint firstItem="BV0-Xy-Xi8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="93" id="fjs-He-2Oa"/>
+                            <constraint firstItem="EZz-vw-xDh" firstAttribute="top" secondItem="V9g-vy-zRy" secondAttribute="bottom" constant="8" symbolic="YES" id="gDV-SF-28q"/>
+                            <constraint firstItem="NBX-M1-RGi" firstAttribute="leading" secondItem="V9g-vy-zRy" secondAttribute="leading" id="iLS-hj-tA3"/>
+                            <constraint firstItem="NBX-M1-RGi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="p6n-z6-uih"/>
+                            <constraint firstItem="NBX-M1-RGi" firstAttribute="trailing" secondItem="V9g-vy-zRy" secondAttribute="trailing" id="pja-Qw-4gE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BV0-Xy-Xi8" secondAttribute="bottom" constant="125" id="qui-bz-R7v"/>
+                            <constraint firstItem="BV0-Xy-Xi8" firstAttribute="top" secondItem="EZz-vw-xDh" secondAttribute="bottom" constant="66" id="zhA-6K-69z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="piggy-bank-svgrepo-com" width="297" height="297"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
