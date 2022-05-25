@@ -13,7 +13,22 @@
 		5778056E2824A8BD00E8EA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5778056C2824A8BD00E8EA7C /* Main.storyboard */; };
 		577805702824A8BF00E8EA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5778056F2824A8BF00E8EA7C /* Assets.xcassets */; };
 		577805732824A8BF00E8EA7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577805712824A8BF00E8EA7C /* LaunchScreen.storyboard */; };
+		FF783F4F283EAD1400D70120 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF783F4E283EAD1400D70120 /* SQLiteDatabase.swift */; };
+		FF783F51283EB44000D70120 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF783F50283EB44000D70120 /* UserModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF43C645283ECF0B008B210F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		577805632824A8BD00E8EA7C /* MeuCofrinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuCofrinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +39,8 @@
 		5778056F2824A8BF00E8EA7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		577805722824A8BF00E8EA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		577805742824A8BF00E8EA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF783F4E283EAD1400D70120 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		FF783F50283EB44000D70120 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 		577805652824A8BD00E8EA7C /* MeuCofrinho */ = {
 			isa = PBXGroup;
 			children = (
+				FF783F4D283EACE900D70120 /* Model */,
 				577805662824A8BD00E8EA7C /* AppDelegate.swift */,
 				577805682824A8BD00E8EA7C /* SceneDelegate.swift */,
 				5778056A2824A8BD00E8EA7C /* ViewController.swift */,
@@ -65,6 +83,15 @@
 				577805742824A8BF00E8EA7C /* Info.plist */,
 			);
 			path = MeuCofrinho;
+			sourceTree = "<group>";
+		};
+		FF783F4D283EACE900D70120 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF783F4E283EAD1400D70120 /* SQLiteDatabase.swift */,
+				FF783F50283EB44000D70120 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +104,7 @@
 				5778055F2824A8BD00E8EA7C /* Sources */,
 				577805602824A8BD00E8EA7C /* Frameworks */,
 				577805612824A8BD00E8EA7C /* Resources */,
+				FF43C645283ECF0B008B210F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -111,6 +139,8 @@
 				Base,
 			);
 			mainGroup = 5778055A2824A8BD00E8EA7C;
+			packageReferences = (
+			);
 			productRefGroup = 577805642824A8BD00E8EA7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +170,8 @@
 			files = (
 				5778056B2824A8BD00E8EA7C /* ViewController.swift in Sources */,
 				577805672824A8BD00E8EA7C /* AppDelegate.swift in Sources */,
+				FF783F4F283EAD1400D70120 /* SQLiteDatabase.swift in Sources */,
+				FF783F51283EB44000D70120 /* UserModel.swift in Sources */,
 				577805692824A8BD00E8EA7C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
