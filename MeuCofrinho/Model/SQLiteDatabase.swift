@@ -20,9 +20,9 @@ class SQLiteDatabase{
     
     init(){
         do{
-            let path: String = NSSearchPatchForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
+            let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
             
-            db = try Connection("\(patch)/my_users.sqlite3")
+            db = try Connection("\(path)/my_users.sqlite3")
             
             users = Table("users")
             
@@ -31,24 +31,52 @@ class SQLiteDatabase{
             senha = Expression<String>("senha")
             saldo = Expression<Double>("saldo")
             
-            try db?.run(table.create(ifNotExists: true){
-                t in
-                t.column(id, primaryKey: .autoincrement)
-                t.column(usuario, unique: true)
-                t.column(senha)
-                t.column(saldo, defaultValue: 0.00)
-            })
-        }catch{
-            print(error.localizedDescription)
+            if (!UserDefaults.standard.bool(forKey: "is_db_created")) {
+                try db.run(users.create { (t) in
+                    t.column(id, primaryKey: .autoincrement)
+                    t.column(usuario, unique: true)
+                    t.column(senha)
+                    t.column(saldo, defaultValue: 0.00)
+                })
+                
+                UserDefaults.standard.set(true, forKey: "is_db_created")
         }
         
-    }
-    
-    public func addUser(usuarioValue: String, senhaValue: String, saldoValue: Double) {
-        do {
-            try db.run(users.insert(usuario <- usuarioValue, senha <- senhaValue))
         } catch {
             print(error.localizedDescription)
         }
     }
+    
+    public func addUser(usuarioValue: String, senhaValue: String) -> Bool {
+        do{
+        try db.run(users.insert(usuario <- usuarioValue, senha <- senhaValue))
+            print("Deu certo")
+            return true
+        } catch {
+            print(error.localizedDescription)
+        }
+    return false
+    }
+    
+    public func loginUser(usuarioValue: String, senhaValue: String) -> Bool {
+        do{
+//
+            
+            
+            
+            
+//            try db.run(users.select(usuario: Expression<usuarioValue>))
+            let usuarios = try db.prepare("SELECT usuario,senha FROM users WHERE usuario = '" + usuarioValue + "' AND senha = '" + senhaValue + "'")
+            for nome in usuarios {
+                print(nome)
+                return true
+            }
+            return false
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    return false
+    }
+    
 }

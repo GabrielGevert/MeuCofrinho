@@ -11,5 +11,5 @@ class UserModel: Identifiable {
     public var id: Int64 = 0
     public var usuario: String = ""
     public var senha: String = ""
-    public var saldo: Double = ""
+    public var saldo: Double = 0.00
 }
