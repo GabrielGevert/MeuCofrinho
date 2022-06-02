@@ -184,7 +184,7 @@
         <!--Menu View Controller-->
         <scene sceneID="r8A-gl-kLn">
             <objects>
-                <viewController storyboardIdentifier="menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="30S-eD-o7d" customClass="MenuViewController" customModule="MeuCofrinho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="30S-eD-o7d" customClass="MenuViewController" customModule="MeuCofrinho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JGT-Dv-gH9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="t7z-t2-hwZ">
+                                    <view contentMode="scaleToFill" restorationIdentifier="menu" id="t7z-t2-hwZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -211,6 +211,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonRemoveValue:" destination="30S-eD-o7d" eventType="touchUpInside" id="dfR-KJ-P5k"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite a quantia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ko-nB-OPQ">
                                                 <rect key="frame" x="38" y="512" width="338" height="60"/>
@@ -231,6 +234,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="Teste:" destination="8cw-q5-3us" eventType="touchUpInside" id="K0i-iw-jmS"/>
+                                                    <action selector="buttonAddValue:" destination="30S-eD-o7d" eventType="touchUpInside" id="4Ld-U2-Rup"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wallet" translatesAutoresizingMaskIntoConstraints="NO" id="ycW-BK-jic">
@@ -280,7 +284,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i0O-qR-Ee5"/>
                         <color key="backgroundColor" red="0.46078884599999997" green="0.89390796419999996" blue="0.47184604409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <connections>
+                            <outlet property="valor" destination="GCU-am-3zM" id="QrP-t1-0fu"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="inputValue" destination="2ko-nB-OPQ" id="m4S-wv-U2S"/>
+                        <outlet property="valorAtual" destination="GCU-am-3zM" id="dBN-8g-zm3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tr-sW-LsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="8cw-q5-3us" userLabel="Exit" sceneMemberID="exit"/>

@@ -29,13 +29,18 @@ class ViewController: UIViewController {
         
         if SQLiteDatabase().loginUser(usuarioValue: usuario!, senhaValue: senha!) {
             
-            let storyboard = UIStoryboard(name: "menu", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
             self.present(vc, animated: true)
             
            
         } else {
-            print("else")
+            
+            let alert = UIAlertController(title: "Falha no login", message: "Usuário ou senha estão incorretos!", preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+            
+            self.present(alert, animated: true)
         }
         
     }

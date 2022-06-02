@@ -50,7 +50,7 @@ class SQLiteDatabase{
     public func addUser(usuarioValue: String, senhaValue: String) -> Bool {
         do{
         try db.run(users.insert(usuario <- usuarioValue, senha <- senhaValue))
-            print("Deu certo")
+
             return true
         } catch {
             print(error.localizedDescription)
@@ -60,12 +60,6 @@ class SQLiteDatabase{
     
     public func loginUser(usuarioValue: String, senhaValue: String) -> Bool {
         do{
-//
-            
-            
-            
-            
-//            try db.run(users.select(usuario: Expression<usuarioValue>))
             let usuarios = try db.prepare("SELECT usuario,senha FROM users WHERE usuario = '" + usuarioValue + "' AND senha = '" + senhaValue + "'")
             for nome in usuarios {
                 print(nome)
@@ -79,4 +73,58 @@ class SQLiteDatabase{
     return false
     }
     
+//    public func getSaldo(saldoNovo: Double) -> Double {
+//        do{
+//            let saldao = try db.prepare("SELECT saldo FROM users WHERE usuario = 'piriquito'")
+//            for saldoNovo in saldao {
+//                return saldoNovo
+//                print(saldoNovo)
+//            }
+//
+//
+//        }
+//    }
+//
+    
+    
+    
+    
+    
+    public func addValue(saldoValue: Double) -> Bool {
+        
+        do{
+            let userSaldo = users.filter(usuario == "piriquito")
+            try db.run(userSaldo.update(saldo <- saldo + saldoValue))
+            
+            let saldao = try db.prepare("SELECT * FROM users WHERE usuario = 'piriquito'")
+            for td in saldao {
+                print(td)
+            }
+            return true
+            
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    return false
+    }
+    
+    public func removeValue(saldoRemoveValue: Double) -> Bool {
+        do{
+            let userRemoveSaldo = users.filter(usuario == "piriquito")
+            try db.run(userRemoveSaldo.update(saldo <- saldo - saldoRemoveValue))
+            
+            let removeSaldao = try db.prepare("SELECT * FROM users WHERE usuario = 'piriquito'")
+            for tds in removeSaldao {
+                print(tds)
+                
+            }
+            return true
+            
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    return false
+    }
 }
