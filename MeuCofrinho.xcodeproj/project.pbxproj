@@ -60,6 +60,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57235D822849955A00DBF323 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57945496283EEC24004DD2BC /* MenuViewController.swift */,
+				57945494283EEB80004DD2BC /* RegistroViewController.swift */,
+				5778056A2824A8BD00E8EA7C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		57235D832849956100DBF323 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5778056C2824A8BD00E8EA7C /* Main.storyboard */,
+				577805712824A8BF00E8EA7C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5778055A2824A8BD00E8EA7C = {
 			isa = PBXGroup;
 			children = (
@@ -79,15 +98,12 @@
 		577805652824A8BD00E8EA7C /* MeuCofrinho */ = {
 			isa = PBXGroup;
 			children = (
+				57235D832849956100DBF323 /* View */,
+				57235D822849955A00DBF323 /* Controller */,
 				FF783F4D283EACE900D70120 /* Model */,
 				577805662824A8BD00E8EA7C /* AppDelegate.swift */,
 				577805682824A8BD00E8EA7C /* SceneDelegate.swift */,
-				5778056A2824A8BD00E8EA7C /* ViewController.swift */,
-				57945494283EEB80004DD2BC /* RegistroViewController.swift */,
-				5778056C2824A8BD00E8EA7C /* Main.storyboard */,
-				57945496283EEC24004DD2BC /* MenuViewController.swift */,
 				5778056F2824A8BF00E8EA7C /* Assets.xcassets */,
-				577805712824A8BF00E8EA7C /* LaunchScreen.storyboard */,
 				577805742824A8BF00E8EA7C /* Info.plist */,
 			);
 			path = MeuCofrinho;
