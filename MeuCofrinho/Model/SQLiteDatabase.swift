@@ -19,6 +19,7 @@ class SQLiteDatabase{
     private var saldo: Expression<Double>!
     
     init(){
+        
         do{
             let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
             
@@ -48,6 +49,7 @@ class SQLiteDatabase{
     }
     
     public func addUser(usuarioValue: String, senhaValue: String) -> Bool {
+        
         do{
         try db.run(users.insert(usuario <- usuarioValue, senha <- senhaValue))
 
@@ -55,53 +57,56 @@ class SQLiteDatabase{
         } catch {
             print(error.localizedDescription)
         }
+        
     return false
     }
     
-    public func loginUser(usuarioValue: String, senhaValue: String) -> Bool {
-        do{
-            let usuarios = try db.prepare("SELECT usuario,senha FROM users WHERE usuario = '" + usuarioValue + "' AND senha = '" + senhaValue + "'")
-            for nome in usuarios {
-                print(nome)
-                return true
-            }
-            return false
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-    return false
-    }
     
-//    public func getSaldo(saldoNovo: Double) -> Double {
-//        do{
-//            let saldao = try db.prepare("SELECT saldo FROM users WHERE usuario = 'piriquito'")
-//            for saldoNovo in saldao {
-//                return saldoNovo
-//                print(saldoNovo)
-//            }
-//
-//
-//        }
-//    }
-//
-    
-    
-    
-    
-    
-    public func addValue(saldoValue: Double) -> Bool {
+    public func loginUser(usuarioValue: String, senhaValue: String) -> Int64 {
         
         do{
-            let userSaldo = users.filter(usuario == "piriquito")
+           
+            let usuarios = try db.prepare(users.select(id, usuario, senha))
+            for user in usuarios {
+                if user[usuario] == usuarioValue && user[senha] == senhaValue {
+                    return user[id]
+                }
+            }
+            
+            return 0
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    return 0
+    }
+    
+    public func getValue(pid:Int64) -> Double {
+        do{
+           
+            let valor = try db.prepare(users.select(id, saldo))
+            for item in valor {
+                if(item[id] == pid){
+                    return item[saldo]
+                }
+            }
+    
+            return 0
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    return 0
+    }
+    
+    public func addValue(saldoValue: Double, pid:Int64) -> Bool {
+        
+        do{
+            let userSaldo = users.filter(id == pid)
             try db.run(userSaldo.update(saldo <- saldo + saldoValue))
             
-            let saldao = try db.prepare("SELECT * FROM users WHERE usuario = 'piriquito'")
-            for td in saldao {
-                print(td)
-            }
             return true
-            
             
         } catch {
             print(error.localizedDescription)
@@ -109,18 +114,31 @@ class SQLiteDatabase{
     return false
     }
     
-    public func removeValue(saldoRemoveValue: Double) -> Bool {
+    public func removeValue(saldoRemoveValue: Double, pid:Int64) -> Bool {
+        
+        var valor:Double = 0
+        
         do{
-            let userRemoveSaldo = users.filter(usuario == "piriquito")
-            try db.run(userRemoveSaldo.update(saldo <- saldo - saldoRemoveValue))
-            
-            let removeSaldao = try db.prepare("SELECT * FROM users WHERE usuario = 'piriquito'")
-            for tds in removeSaldao {
-                print(tds)
-                
+            let usuarios = try db.prepare(users.select(id, saldo))
+            for user in usuarios {
+                if user[id] == pid {
+                    valor = valor + user[saldo]
+                }
             }
-            return true
             
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        do{
+           valor = valor - saldoRemoveValue
+            if valor < 0{
+                valor = 0
+            }
+            let userRemoveSaldo = users.filter(id == pid)
+            try db.run(userRemoveSaldo.update(saldo <- valor))
+            
+            return true
             
         } catch {
             print(error.localizedDescription)

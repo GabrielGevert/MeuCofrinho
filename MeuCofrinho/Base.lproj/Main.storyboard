@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Browser" id="BYZ-38-t0r" customClass="ViewController" customModule="MeuCofrinho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="MeuCofrinho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,16 +243,26 @@
                                                     <constraint firstAttribute="height" constant="30" id="ZkP-ph-Fjt"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCU-am-3zM">
-                                                <rect key="frame" x="158" y="368" width="256" height="41"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="41" id="yjB-mY-tPh"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCU-am-3zM">
+                                                <rect key="frame" x="38" y="367" width="338" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
                                                 <color key="textColor" red="0.28891010217837532" green="0.56657587375837504" blue="0.29819054010814333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="4"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-Bp-9Ll">
+                                                <rect key="frame" x="23" y="11" width="49" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.144731102" green="0.37888100219999998" blue="0.16136369019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <backgroundConfiguration key="background" image="arrow.backward.circle" catalog="system"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="logout:" destination="30S-eD-o7d" eventType="touchUpInside" id="Rgh-Hp-Tw6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="ES3-5m-W1l"/>
                                         <color key="backgroundColor" red="0.46078884599999997" green="0.89390796419999996" blue="0.47184604409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -265,11 +275,8 @@
                                             <constraint firstItem="5T2-dO-C4W" firstAttribute="leading" secondItem="t7z-t2-hwZ" secondAttribute="leadingMargin" id="WhU-Jc-IdU"/>
                                             <constraint firstItem="ycW-BK-jic" firstAttribute="leading" secondItem="ES3-5m-W1l" secondAttribute="leading" constant="327" id="XXu-jd-W82"/>
                                             <constraint firstItem="HfJ-ZE-hmb" firstAttribute="centerX" secondItem="t7z-t2-hwZ" secondAttribute="centerX" id="ZZE-SP-93H"/>
-                                            <constraint firstItem="GCU-am-3zM" firstAttribute="top" secondItem="HfJ-ZE-hmb" secondAttribute="bottom" constant="98" id="a5A-It-iaT"/>
                                             <constraint firstItem="5T2-dO-C4W" firstAttribute="top" secondItem="2ko-nB-OPQ" secondAttribute="bottom" constant="51" id="aFu-UJ-1cP"/>
                                             <constraint firstItem="2ko-nB-OPQ" firstAttribute="trailing" secondItem="ycW-BK-jic" secondAttribute="trailing" id="btu-M8-eCf"/>
-                                            <constraint firstAttribute="trailing" secondItem="GCU-am-3zM" secondAttribute="trailing" id="c47-42-2Y7"/>
-                                            <constraint firstItem="GCU-am-3zM" firstAttribute="leading" secondItem="ES3-5m-W1l" secondAttribute="leading" constant="158" id="cvO-Ui-G12"/>
                                             <constraint firstItem="HfJ-ZE-hmb" firstAttribute="leading" secondItem="ES3-5m-W1l" secondAttribute="leading" constant="38" id="k7d-kK-5fQ"/>
                                             <constraint firstItem="HfJ-ZE-hmb" firstAttribute="leading" secondItem="2ko-nB-OPQ" secondAttribute="leading" id="nXS-cW-4Sc"/>
                                             <constraint firstItem="7jD-yl-9Lo" firstAttribute="trailing" secondItem="t7z-t2-hwZ" secondAttribute="trailingMargin" id="qGC-g7-Aw7"/>
@@ -284,13 +291,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i0O-qR-Ee5"/>
                         <color key="backgroundColor" red="0.46078884599999997" green="0.89390796419999996" blue="0.47184604409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <connections>
-                            <outlet property="valor" destination="GCU-am-3zM" id="QrP-t1-0fu"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="inputValue" destination="2ko-nB-OPQ" id="m4S-wv-U2S"/>
-                        <outlet property="valorAtual" destination="GCU-am-3zM" id="dBN-8g-zm3"/>
+                        <outlet property="labelValue" destination="GCU-am-3zM" id="w1u-11-hHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tr-sW-LsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -300,6 +304,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward.circle" catalog="system" width="128" height="121"/>
         <image name="piggy-bank-svgrepo-com" width="297" height="297"/>
         <image name="wallet" width="512" height="512"/>
         <systemColor name="labelColor">

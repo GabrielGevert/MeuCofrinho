@@ -16,22 +16,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
 
     @IBAction func entrarBotao(_ sender: Any) {
+        
         let usuario: String? =
         self.usuarioText.text
         
         let senha: String? =
         self.senhaText.text
         
-        if SQLiteDatabase().loginUser(usuarioValue: usuario!, senhaValue: senha!) {
+        let id = SQLiteDatabase().loginUser(usuarioValue: usuario!, senhaValue: senha!)
+        
+        if  id != 0 {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
+            let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            vc.userID(id: id)
             self.present(vc, animated: true)
+            
             
            
         } else {
@@ -42,8 +45,6 @@ class ViewController: UIViewController {
             
             self.present(alert, animated: true)
         }
-        
     }
-    
 }
 
